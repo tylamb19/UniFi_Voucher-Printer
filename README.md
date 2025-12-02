@@ -30,10 +30,17 @@ regular-font.ttf and bold-font.ttf should be full character set truetype fonts, 
 Your PrintVoucher folder should look something like the following with a fully functional install:
 
 *****************************************************************************
-`pi_admin@piprint:~/PrintVoucher $ ls
+```
+pi_admin@piprint:~/PrintVoucher $ ls
+
  bold-font.ttf   LICENSE                      __pycache__        UnifiAPI.py
+ 
  img-tmp.png    'linux helper commands.txt'   README.md          venv
+ 
  lg              Network-Image.bmp            regular-font.ttf
+ 
  lg.zip          Print.py                     requirements.txt
-pi_admin@piprint:~/PrintVoucher $`
+ 
+pi_admin@piprint:~/PrintVoucher $
+```
 *****************************************************************************
