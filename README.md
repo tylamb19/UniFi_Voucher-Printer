@@ -16,4 +16,6 @@
 
 **Notes**
 
-* This is written to work with a self-hosted conroller. The API calls will change if using a controller running on a UniFi Gateway.
+* This fork is written to support UniFi consoles such as the UDM Pro.
+
+* Updated linux install based on Raspbian 13 on a Pi Zero 2 W
