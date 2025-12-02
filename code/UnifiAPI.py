@@ -9,27 +9,30 @@ from Print import printVoucher
 
 # Set Variables
 # ---------------------------------------------
-base_url = "https://unifi.***.com"
+base_url = "https://10.1.1.1"
+proxy_url = "proxy/network"
 site_name = "default"
 voucher_old_delete_days = 7
 username = "api_hotspot"
-password = "***"
+password = "YourSecurePassword123!"
 
-logo_file = "***.png"
-network_name = "ssid-name"
-network_password = "ssid-password"
+logo_file = "Network-Image.bmp"
+network_name = "Guest WiFi"
+network_password = "Your Ultra Secure WiFi"
 
 
 # Set Constants
 # ---------------------------------------------
-auth_url = f"{base_url}/api/login"
-voucher_cmd_url = f"{base_url}/api/s/{site_name}/cmd/hotspot"
-voucher_list_url = f"{base_url}/api/s/{site_name}/stat/voucher"
+auth_url = f"{base_url}/api/auth/login"
+voucher_cmd_url = f"{base_url}/{proxy_url}/api/s/{site_name}/cmd/hotspot"
+voucher_list_url = f"{base_url}/{proxy_url}/api/s/{site_name}/stat/voucher"
 eastern_time_zone = pytz.timezone("America/New_York")
 
 default_headers = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
 }
+
+csrf_token = ""
 
 urllib3.disable_warnings()
 
@@ -47,8 +50,7 @@ def expNote():
 
 session = requests.Session()
 
-
-def createVoucher():
+def authenticate():
     # Authentication
     # ---------------------------------------------
     auth_body = {
@@ -59,15 +61,21 @@ def createVoucher():
     }
 
     auth_response = session.post(auth_url, headers=default_headers, data=json.dumps(auth_body), verify=False)
+    auth_headers = {
+        "Content-Type": "application/json",
+        "X-Csrf-Token": auth_response.headers["X-Csrf-Token"]
+    }
     auth_response.raise_for_status()
+    return auth_headers
 
+def createVoucher():
     # Create Voucher
     # ----------------------------------------------
     voucher_create_body = {
-        "quota": 0,
-        "note": f"VP - {datetime.now().strftime('%m/%d/%Y %I:%M:%S %p')}",
+        "quota": 1,
+        "note": f"LM - {datetime.now().strftime('%m/%d/%Y %I:%M:%S %p')}",
         "n": 1,
-        "expire_number": 24,
+        "expire_number": 12,
         "expire_unit": 60,
         "cmd": "create-voucher"
     }
@@ -135,7 +143,7 @@ def remove_old_vouchers():
     for voucher in voucher_list:
         utc_datetime = datetime.fromtimestamp(voucher['create_time'], tz=timezone.utc)
         eastern_datetime = utc_datetime.astimezone(eastern_time_zone)
-        if eastern_datetime < days_ago_eastern and voucher['note'].startswith("VP"):
+        if eastern_datetime < days_ago_eastern and voucher['note'].startswith("LM"):
             old_vouchers.append(voucher)
 
     remove_vouchers(old_vouchers)
@@ -183,7 +191,7 @@ while True:
         
         x = x + 1
         print(f"PRESSED - {x}")
-        
+        default_headers = authenticate()
         voucher_list = createVoucher()
         
         remove_expired_vouchers()
