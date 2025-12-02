@@ -6,8 +6,8 @@
 	* https://www.amazon.com/dp/B07YLSTMCX
  * High quality thermal paper
  	* https://www.amazon.com/dp/B0CM7NWNBM?ref=fed_asin_title
- * Pi - Raspberry Pi 4 (Running Raspberry Pi OS Lite)
-	* https://www.adafruit.com/product/4295
+ * Pi - Raspberry Pi Zero 2W (Running Raspbian 13)
+	* https://www.adafruit.com/product/6008
  * Button
 	* https://www.adafruit.com/product/560
  * Step Down Regulator (to power Pi from printer power supply)
