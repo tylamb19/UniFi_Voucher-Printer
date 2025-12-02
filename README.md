@@ -2,7 +2,7 @@
 
 **Parts List**
 
- * Printer - Epson TM-T20III (also tested with TM-T88IV, if printer is changed, you will need to make requisite USB ID and escpos profile changes)
+ * Printer - Epson TM-T20III (also tested with TM-T88IV, if printer is changed, you will need to make requisite USB ID and escpos profile changes in Print.py)
 	* https://www.amazon.com/dp/B07YLSTMCX
  * High quality thermal paper
  	* https://www.amazon.com/dp/B0CM7NWNBM?ref=fed_asin_title
