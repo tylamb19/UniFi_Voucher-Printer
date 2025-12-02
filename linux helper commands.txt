@@ -23,6 +23,20 @@ cp /mnt/volume/PrintVoucher /home/pi_admin/ -r
 
 #########################################################################################
 
+Install required packages via apt-get
+sudo apt-get install libfreetype-dev gcc zlib1g-dev libjpeg-dev swig python3-dev python3-setuptools
+
+#########################################################################################
+
+Build libgpio dependency from source (required)
+wget http://abyz.me.uk/lg/lg.zip
+unzip lg.zip
+cd lg
+make
+sudo make install
+
+#########################################################################################
+
 Create Virtual Environment:
 cd /home/pi_admin/PrintVoucher/
 python -m venv venv
