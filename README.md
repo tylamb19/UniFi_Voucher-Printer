@@ -32,15 +32,10 @@ Your PrintVoucher folder should look something like the following with a fully f
 *****************************************************************************
 ```
 pi_admin@piprint:~/PrintVoucher $ ls
-
  bold-font.ttf   LICENSE                      __pycache__        UnifiAPI.py
- 
  img-tmp.png    'linux helper commands.txt'   README.md          venv
- 
  lg              Network-Image.bmp            regular-font.ttf
- 
  lg.zip          Print.py                     requirements.txt
- 
 pi_admin@piprint:~/PrintVoucher $
 ```
 *****************************************************************************
