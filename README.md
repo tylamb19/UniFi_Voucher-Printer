@@ -13,9 +13,11 @@
  * Step Down Regulator (to power Pi from printer power supply)
  	* https://www.pololu.com/product/4892
 
+Button connected to GPIO 17
+LED ring connected to GPIO 18
 
 **Notes**
 
 * This fork is written to support UniFi consoles such as the UDM Pro.
-
 * Updated linux install based on Raspbian 13 on a Pi Zero 2 W
+* Follow steps in Linux Helper Commands text file to install and run.
