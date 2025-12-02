@@ -21,3 +21,5 @@ LED ring connected to GPIO 18
 * This fork is re-written to support UniFi consoles such as the UDM Pro.
 * Updated linux install based on Raspbian 13 on a Pi Zero 2 W
 * Follow steps in Linux Helper Commands text file to install and run.
+
+You will need to provide Network-Image.bmp for the service to function. This image should be placed in the same folder as your .py files. It should be 250px maximum in any dimension, 1 bit bitmap.
